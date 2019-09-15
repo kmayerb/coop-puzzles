@@ -36,13 +36,15 @@ def sum_of_all_multiples(divisors=[3, 5], below = 10):
 
     Parameters
     ----------
-    divisors : int
-    below = int
+    divisors : list
+        list of [int, int]
+    below : int or float
+        integer or float that all multiples must be below in order to be summed
 
     Returns
     -------
     sum_of_multiples : int
-        sum of multiples of the divisors that are less than the number below
+        the sum of multiples of the divisors that are less than the number below
 
     Raises
     ------
