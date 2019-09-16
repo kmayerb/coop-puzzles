@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 def is_multiple(x, k):
     """
@@ -57,11 +58,25 @@ def sum_of_all_multiples(divisors=[3, 5], below = 10):
     >>> sum_of_all_multiples(divisors = [3,5], below= 1000)
     233168
     """
-    k , j = divisors
+    # Assert enforce that divisors is a list of positive integers
+    assert(isinstance(divisors, list)), "divisors must be a list"
+    assert(np.all([isinstance(d, int) for d in divisors])) , "divisors must be a list of integers"
+    assert(np.all([d > 0 for d in divisors])) , "divisors must be a list of positive integers"
 
-    multiples = [i for i in range(1, math.ceil(below)) if \
-                is_multiple(i, k) or is_multiple(i, j)]
-    sum_of_multiples = sum(multiples)
+    # New Method: That can accommodate any number of divisors
+    all_multiples = []
+
+    for d in divisors:
+        all_multiples = all_multiples + [i for i in range(1, math.ceil(below)) if is_multiple(i, d)]
+
+    sum_of_multiples = sum(list(set(all_multiples)))
+
+    # Previous Method was rigid, requiring exactly two divisors
+    # k , j = divisors
+    #
+    # multiples = [i for i in range(1, math.ceil(below)) if \
+    #            is_multiple(i, k) or is_multiple(i, j)]
+    # sum_of_multiples = sum(multiples)
 
     return(sum_of_multiples)
 
