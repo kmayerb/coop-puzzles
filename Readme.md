@@ -8,3 +8,5 @@ At FH a small group of python programmers, bioinformaticians, and data scientist
 collaborative Friday Lunchtime puzzles solved to discuss python coding practice.
 
 ### sums.py: Find the sum of all the multiples of 3 or 5 below 1000.
+
+### count_nucs.py: Count nucleotides in a string
